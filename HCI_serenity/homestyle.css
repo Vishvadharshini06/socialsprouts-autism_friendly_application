@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url("background.png") no-repeat center / cover;
+    padding: 50px 5%;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    background: rgba(255, 255, 255,.1);
+    border: 2px solid rgba(255, 255, 255,.2);
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+    transform: scale(0);
+    animation: zoom-in 1s ease forwards;
+}
+
+@keyframes zoom-in {
+    100%{
+        transform: scale(1);
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    background: rgba(255, 255, 255,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a{
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    border-bottom: 2px solid transparent;
+    transition: .5s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    border-color: #fff;
+}
+
+.newhome{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 50px;
+    padding: 50px 5% 0;
+    color: #fff;
+}
+
+.newhome-detail h1{
+    font-size: 55px;
+    line-height: 1;
+}
+
+.newhome-detail h2{
+    font-size: 32px;
+}
+.newhome-detail p{
+    margin: 10px 0 20px;
+}
+
+.newhome-detail .download-social{
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    box-shadow: 0 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    box-shadow: none;
+    color: #fff;
+}
+
+.newhome-detail .social-icons{
+    margin-left: 20px;
+}
+
+.newhome-detail .social-icons a{
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: .5s;
+}
+
+.newhome-detail .social-icons a:hover{
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+    color: #333;
+}
+
+.newhome-img .img-box{
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #fff;
+    overflow: hidden;
+}
+
+.newhome-img .img-box img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== ABOUT SECTION ========== */
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 100px 10%;
+    color: #fff;
+    text-align: center;
+    animation: fade-in 0.6s ease;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 900px;
+}
+
+/* ========== FEATURES SECTION ========== */
+/* ========== FEATURES SECTION ========== */
+.features {
+    /* Adjusted to center content and take full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically within the section */
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 5%; 
+    color: #fff;
+    text-align: center;
+    animation: fade-in 0.6s ease;
+}
+
+.features h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+/* Features grid container: Horizontal arrangement */
+.features .grid {
+    display: grid;
+    /* Arranges cards in a responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Space between cards */
+    width: 100%;
+    max-width: 1200px; 
+    margin: auto;
+}
+
+/* Each card inside container (MODIFIED to use Flexbox) */
+.features .card {
+    /* Set a unified height for all cards */
+    height: 350px; /* Increased height slightly for better visual proportion */
+    
+    /* CRITICAL: Make the card a column flex container */
+    display: flex;
+    flex-direction: column; 
+    
+    width: 100%; 
+    overflow: hidden;
+    border-radius: 0.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* NEW: Define the height for the image wrapper */
+.features .img-box {
+    /* Allocate the top portion for the image (70% of the 350px card height) */
+    height: 70%; 
+    width: 100%;
+    overflow: hidden;
+}
+
+.features .img-box img {
+    display: block;
+    width: 100%;
+    /* CRITICAL: Image fills the allocated height of its parent (.img-box) */
+    height: 100%; 
+    object-fit: cover; /* Ensures the image covers the entire box without stretching */
+}
+
+/* Overlay heading adjustments (position: absolute kept for stacking) */
+.features .card-heading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0 0 0.6rem 0.6rem;
+    text-align: center;
+}
+
+/* Hover content reveal adjustments */
+.features .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.6s ease, opacity 0.6s ease;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.features .card:hover .card-content {
+    /* Height remains 80% to give space for the title to show through on hover */
+    height: 80%; 
+    opacity: 1;
+}
+
+/* Responsive grid for smaller screens (kept from original logic) */
+@media (max-width: 1024px) {
+    .features .grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    }
+}
+
+@media (max-width: 768px) {
+    .features .grid {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 350px; 
+    }
+}
+/* ========== CONTACT US SECTION (MODIFIED) ========== */
+/* ========== CONTACT US SECTION (COMPACT FIT) ========== */
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically now that space is compact */
+    align-items: center;
+    
+    /* CRITICAL CHANGE: Reduce vertical padding for a tight fit */
+    padding: 80px 5% 30px; 
+    
+    /* Set max height to ensure it doesn't exceed the container's visual space */
+    height: 100%; 
+    overflow: hidden; /* Prevent any unintended scrollbars */
+    
+    color: #fff;
+    text-align: center;
+    animation: fade-in 0.6s ease;
+}
+
+/* Reduced size for the main heading */
+.contact h2 {
+    font-size: 28px; /* Smaller heading */
+    margin-bottom: 30px; /* Reduced margin */
+}
+
+/* Reduced maximum width for better proportions */
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Reduced gap */
+    width: 100%;
+    max-width: 800px; /* Tighter max width */
+    margin: 0 auto;
+    padding: 10px 0; /* Reduced padding */
+}
+
+/* Contact Form Styling */
+.contact-form-container {
+    flex: 1.2; /* Give the form slightly more width */
+    text-align: left;
+}
+
+.contact-form .input-group {
+    margin-bottom: 15px; /* Reduced margin between fields */
+}
+
+/* Reduced size for labels */
+.contact-form label {
+    display: block;
+    font-size: 14px; /* Smaller label text */
+    margin-bottom: 5px; /* Reduced margin */
+    color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    /* CRITICAL CHANGE: Reduced input box height */
+    padding: 8px 12px; 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px; /* Smaller input text */
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* CRITICAL CHANGE: Reduced the default height of the textarea */
+.contact-form textarea {
+    resize: vertical;
+    min-height: 80px; /* Set a fixed smaller minimum height */
+}
+
+/* Submit button size adjustment */
+.contact-form .btn {
+    width: 100%;
+    /* Reduced padding for smaller button height */
+    padding: 8px 30px;
+    margin-top: 15px; 
+    font-size: 14px; /* Smaller button text */
+    /* Retains existing .btn styles for background/border */
+}
+
+/* Contact Info Styling */
+.contact-info {
+    flex: 0.8; /* Give info slightly less width */
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 20px; /* Smaller info heading */
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 14px; /* Smaller body text */
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.contact-info .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px; /* Smaller info text */
+}
+
+.contact-info .info-item i {
+    font-size: 20px; /* Smaller icons */
+    margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .contact-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

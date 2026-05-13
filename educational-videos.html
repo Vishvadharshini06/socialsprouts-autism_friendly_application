@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Videos - Serenity AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h2>Autism-Friendly Educational Videos</h2>
+
+  <div class="video-container" id="video-container"></div>
+
+  <script>
+    const videos = [
+      "https://www.youtube.com/watch?v=QvmZwQIsj3k",
+       "https://www.youtube.com/watch?v=QvmZwQIsj3k",
+        "https://www.youtube.com/watch?v=QvmZwQIsj3k",
+         "https://www.youtube.com/watch?v=QvmZwQIsj3k",
+          "https://www.youtube.com/watch?v=QvmZwQIsj3k",
+           "https://www.youtube.com/watch?v=QvmZwQIsj3k"
+    ];
+
+    const videoContainer = document.getElementById("video-container");
+
+    // Loop through the videos array to create iframes
+    videos.forEach((video) => {
+      // Create iframe for the video
+      const iframe = document.createElement("iframe");
+      iframe.width = "560";
+      iframe.height = "315";
+      iframe.src = video; // Use embed URL format
+      iframe.frameBorder = "0";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+
+      // Append the iframe to the video container
+      videoContainer.appendChild(iframe);
+    });
+  </script>
+
+</body>
+</html>

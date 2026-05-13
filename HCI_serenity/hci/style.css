@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600&display=swap");
+
+/* Universal box-sizing, remove default padding and margin */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Urbanist", sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 4rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    grid-gap: 2rem;
+    text-align: center;
+    width: 90%;
+    max-width: 1800px;
+    margin: auto;
+}
+
+.img-box img {
+    display: block;
+    width: 100%;
+    height: 30rem;
+    object-fit:fill;
+}
+
+.card {
+    display: block;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+/* New: Styling for the heading that appears on hover */
+.card-heading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background for heading */
+    color: #fff;
+    padding: 1.5rem 1rem;
+    font-size: 1.8rem; /* Slightly smaller for better fit */
+    font-weight: 600;
+}
+
+.card-content {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    height: 0; /* Initially hidden */
+    padding: 0 2.2rem; /* Adjusted padding as heading is separate */
+    overflow: hidden;
+    transition: height 0.7s ease, opacity 0.7s ease;
+    opacity: 0; /* Initially hidden */
+    display: flex; /* Flex for centering paragraph */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1; /* Below the heading for visual layering */
+}
+
+
+
+.card-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: 1.2rem 0; /* Adjusted padding */
+    opacity: 0; /* Will be managed by parent .card-content opacity now */
+    visibility: hidden; /* Will be managed by parent .card-content opacity now */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* On hover of the .card, reveal its children */
+.card:hover .card-heading {
+    transform: translateY(0); /* Move heading into view */
+    opacity: 1;
+}
+
+.card:hover .card-content {
+    height: 60%; /* Expand height to show paragraph */
+    opacity: 1; /* Make content visible */
+    /* We'll adjust the 'bottom' to stack below the heading */
+    bottom: auto; /* Reset bottom */
+    top: calc(100% - 60% - 70px); /* Adjust based on desired position and heading height */
+    /* NOTE: This 'top' calculation is a bit tricky and might need fine-tuning
+       depending on the exact height of your heading and desired overlap/spacing.
+       70px is an estimate for the heading height. */
+}
+
+/* When card-content is visible, make paragraph visible too */
+.card:hover .card-content p {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s; /* Delay p visibility slightly after content expands */
+}
+
+/* Optional: Adjust card-content height more precisely relative to heading */
+.card:hover .card-content {
+    /* If heading height is 70px (approx) and card-content should be 60% of card,
+       then card-content covers (60% - heading_height) effectively */
+    height: calc(60% - 70px); /* Adjust 70px for actual heading height including padding */
+    bottom: 0; /* Stick to bottom */
+}
+
+
+/* ===== responsive ===== */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

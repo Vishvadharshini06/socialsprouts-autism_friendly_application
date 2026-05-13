@@ -1,0 +1,34 @@
+social-skills.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Skills - Serenity AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <center><h2 class="page-title">Social Skills Modules</h2></center>
+
+  <div class="skills-container">
+    <script>
+      // Generate 6 modules
+      for (let i = 1; i <= 6; i++) {
+        document.write(`
+          <div class="skill-box" onclick="startModule(${i})">
+            <h3>Module ${i}</h3>
+            <p>AI-based social skill practice and scenario quiz</p>
+          </div>
+        `);
+      }
+    </script>
+  </div>
+
+  <script>
+    function startModule(moduleNumber) {
+      window.location.href = `social-skill-quiz.html?module=${moduleNumber}`;
+    }
+</script>
+</body>
+</html>
