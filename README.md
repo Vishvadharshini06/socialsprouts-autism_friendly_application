@@ -45,7 +45,7 @@ The platform provides a simple, high-contrast, and user-friendly interface tailo
 - CSS
 - JavaScript
 - Python (for backend/chatbot functionality)
-- OpenAI API (if integrated)
+- OpenAI API (for chatbot)
 
 ---
 
